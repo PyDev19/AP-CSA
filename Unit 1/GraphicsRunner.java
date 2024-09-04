@@ -1,32 +1,28 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Atharva Mishra
+//Class - Patterson	3B
+//Description - Makes a Robot object with a head, upper body, and lower body
 
 import javax.swing.JFrame;
 
-public class GraphicsRunner extends JFrame
-{
+public class GraphicsRunner extends JFrame {
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 
-	public GraphicsRunner()
-	{
+	public GraphicsRunner() {
 		super("Graphics Runner");
 
-		setSize(WIDTH,HEIGHT);
+		setSize(WIDTH, HEIGHT);
 
-		getContentPane().add(new SmileyFace());
-		
-		//add other classes to run them 
-		//BigHouse, Robot, Character, or ShapePanel 
+		getContentPane().add(new Robot());
 
 		setVisible(true);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public static void main( String args[] )
-	{
+	public static void main(String args[]) {
 		GraphicsRunner run = new GraphicsRunner();
 	}
 }
