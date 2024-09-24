@@ -3,7 +3,7 @@
 //Name - Atharva Mishra
 //Class - Patterson	3B
 //Description - Makes a Robot object with a head, upper body, and lower body
-
+ 
 import javax.swing.JFrame;
 
 public class GraphicsRunner extends JFrame {
@@ -23,6 +23,6 @@ public class GraphicsRunner extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		GraphicsRunner run = new GraphicsRunner();
+		new GraphicsRunner();
 	}
 }
