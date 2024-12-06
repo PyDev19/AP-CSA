@@ -90,16 +90,16 @@ public class PersonRunner implements Runnable, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == e.VK_W) {
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			p.moveUp();
 		}
-		if (e.getKeyCode() == e.VK_S) {
+		if (e.getKeyCode() == KeyEvent.VK_S) {
 			p.moveDown();
 		}
-		if (e.getKeyCode() == e.VK_A) {
+		if (e.getKeyCode() == KeyEvent.VK_A) {
 			p.moveLeft();
 		}
-		if (e.getKeyCode() == e.VK_D) {
+		if (e.getKeyCode() == KeyEvent.VK_D) {
 			p.moveRight();
 		}
 	}

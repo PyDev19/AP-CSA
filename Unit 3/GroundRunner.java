@@ -2,7 +2,7 @@
 //www.apluscompsci.com
 //Name - Atharva Mishra
 //Class - Patterson 3B
-//Description - This class creates a game where the player has to dodge enemies. The player can move up, down, left, and right. The player loses if they collide with an enemy.
+//Description - This class tests the Ground class by running it.
 
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -15,28 +15,23 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Game implements Runnable, KeyListener 
-{
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
-	public static boolean RUNNING = true;
+public class GroundRunner implements Runnable, KeyListener {
+	final static int WIDTH = 800;
+	final static int HEIGHT = 600;
+	static boolean RUNNING = true;
 
 	// Person
 	private Person p;
-	
+
 	// Ground
 	private Ground gro;
-	
-	// Enemies
-	private Enemies e;
 
 	private JFrame frame;
 	private Canvas canvas;
 	private BufferStrategy bufferStrategy;
 
-	public Game() throws IOException 
-	{
-		frame = new JFrame("Dodging Enemies");
+	public GroundRunner() throws IOException {
+		frame = new JFrame("GroundRunner");
 
 		JPanel panel = (JPanel) frame.getContentPane();
 		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -48,16 +43,13 @@ public class Game implements Runnable, KeyListener
 
 		panel.add(canvas);
 
-		// ******************************************************************
-
 		// Initialize person
 		p = new Person(400, 100);
 
-		// Initialize enemies
-		e = new Enemies(p);
-		
 		// Initialize ground
 		gro = new Ground();
+
+		// ******************************************************************
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
@@ -71,11 +63,11 @@ public class Game implements Runnable, KeyListener
 		canvas.addKeyListener(this);
 	}
 
-	// Game loop
-	public void run() 
-	{
-		while (RUNNING) 
-		{
+	// GroundRunner loop
+	public void run() {
+
+		while (RUNNING) {
+
 			try {
 				render();
 			} catch (IOException e1) {
@@ -89,8 +81,7 @@ public class Game implements Runnable, KeyListener
 		}
 	}
 
-	private void render() throws IOException 
-	{
+	private void render() throws IOException {
 		Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		render(g);
@@ -99,42 +90,38 @@ public class Game implements Runnable, KeyListener
 	}
 
 	// DRAW METHOD
-	void render(Graphics2D g) throws IOException 
-	{
+	void render(Graphics2D g) throws IOException {
 		gro.drawGround(g);
-		e.drawAndCollision(g);
 		p.drawPerson(g);
 	}
 
-	public void keyTyped(KeyEvent e) 
-	{
-		// not used	
+	public void keyTyped(KeyEvent e) {
+		// not used
 	}
-	
-	public void keyReleased(KeyEvent e) 
-	{
-		// not used	
+
+	public void keyReleased(KeyEvent e) {
+		// not used
 	}
-	
-	public void keyPressed(KeyEvent e) 
-	{
-		if (e.getKeyCode() == e.VK_W) {
+
+	public void keyPressed(KeyEvent e) {
+
+		if (e.getKeyCode() == KeyEvent.VK_W) {
 			p.moveUp();
 		}
-		if (e.getKeyCode() == e.VK_S) {
+		if (e.getKeyCode() == KeyEvent.VK_S) {
 			p.moveDown();
 		}
-		if (e.getKeyCode() == e.VK_A) {
+		if (e.getKeyCode() == KeyEvent.VK_A) {
 			p.moveLeft();
 		}
-		if (e.getKeyCode() == e.VK_D) {
+		if (e.getKeyCode() == KeyEvent.VK_D) {
 			p.moveRight();
-		}	
-	}		
+		}
+	}
 
 	// ******************************************************************
 	public static void main(String[] args) throws IOException {
-		Game game = new Game();
-		new Thread(game).start();
+		GroundRunner GroundRunner = new GroundRunner();
+		new Thread(GroundRunner).start();
 	}
 }
