@@ -1,0 +1,32 @@
+//Name - Atharva Mishra
+//Class - Patterson 3B
+//Description - This program tests the BlackJackCard class and its methods. It creates 6 cards and prints them out. It also tests the equals method of the BlackJackCard class.
+
+import static java.lang.System.*;
+
+public class CardTestOne {
+    public static void main(String args[]) {
+        Card one = new BlackJackCard();
+        out.println(one);
+
+        Card two = new BlackJackCard(1, "DIAMONDS");
+        out.println(two);
+
+        Card three = new BlackJackCard(4, "CLUBS");
+        out.println(three);
+
+        Card four = new BlackJackCard(12, "SPADES");
+        out.println(four);
+
+        Card five = new BlackJackCard(12, "HEARTS");
+        out.println(five);
+
+        Card six = new BlackJackCard(9, "SPADES");
+        out.println(six);
+
+        out.println(one.equals(two));
+        out.println(one.equals(one));
+        out.println(four.equals(five));
+        out.println(three.equals(four));
+    }
+}
